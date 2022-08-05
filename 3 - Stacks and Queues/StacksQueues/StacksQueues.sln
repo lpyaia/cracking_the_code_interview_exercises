@@ -5,7 +5,11 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StacksQueues", "StacksQueues\StacksQueues.csproj", "{D87416C7-7899-4AF0-8517-5F3592DE51F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_1", "3_1\3_1.csproj", "{93989442-EDBA-4ABC-9E93-61E0B7A37100}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3_1", "3_1\3_1.csproj", "{93989442-EDBA-4ABC-9E93-61E0B7A37100}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_2", "3_2\3_2.csproj", "{E5A6264E-F760-49D1-B46C-8A8020496C11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3_3", "3_3\3_3.csproj", "{9C6EFB87-AEE8-4D33-986E-61B6B8D9FA17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{93989442-EDBA-4ABC-9E93-61E0B7A37100}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93989442-EDBA-4ABC-9E93-61E0B7A37100}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93989442-EDBA-4ABC-9E93-61E0B7A37100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A6264E-F760-49D1-B46C-8A8020496C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A6264E-F760-49D1-B46C-8A8020496C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A6264E-F760-49D1-B46C-8A8020496C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A6264E-F760-49D1-B46C-8A8020496C11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C6EFB87-AEE8-4D33-986E-61B6B8D9FA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6EFB87-AEE8-4D33-986E-61B6B8D9FA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6EFB87-AEE8-4D33-986E-61B6B8D9FA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6EFB87-AEE8-4D33-986E-61B6B8D9FA17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
