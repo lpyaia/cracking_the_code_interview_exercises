@@ -27,3 +27,6 @@ Console.WriteLine(setOfStacks.Pop());
 setOfStacks.Push(1);
 setOfStacks.Push(2);
 setOfStacks.Push(3);
+
+Console.WriteLine(setOfStacks.PopAt(0));
+Console.WriteLine(setOfStacks.PopAt(1));

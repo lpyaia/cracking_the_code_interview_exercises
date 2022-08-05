@@ -13,9 +13,9 @@
             Size = size;
         }
 
-        public T Pop()
+        public T? Pop()
         {
-            if (Top == null) throw new InvalidOperationException("Stack is empty.");
+            if (Top == null) return default;
 
             T item = Top.Data;
 
