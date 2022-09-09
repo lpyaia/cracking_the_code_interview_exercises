@@ -1,6 +1,6 @@
 ﻿namespace Common
 {
-    public class BinaryTree<T>
+    public class BinaryTree<T> where T : struct
     {
         public BinaryTreeNode<T>? Root { get; set; }
 
@@ -95,6 +95,62 @@
             }
 
             return listOfDepths;
+        }
+
+        public bool IsBalanced()
+        {
+            return IsBalanced(Root) != -1;
+        }
+
+        private int IsBalanced(BinaryTreeNode<T>? node)
+        {
+            if (node != null)
+            {
+                int heightLeft = IsBalanced(node.Left);
+                if (heightLeft == int.MinValue) return int.MinValue;
+
+                int heightRight = IsBalanced(node.Right);
+                if (heightRight == int.MinValue) return int.MinValue;
+
+                if (Math.Abs(heightLeft - heightRight) > 1)
+                {
+                    return int.MinValue;
+                }
+
+                return Math.Max(heightLeft + 1, heightRight + 1);
+            }
+
+            return 0;
+        }
+
+        public bool IsBst(BinaryTreeNode<int>? root)
+        {
+            return CheckBst(root) != null;
+        }
+
+        private List<int>? CheckBst(BinaryTreeNode<int>? node)
+        {
+            if (node != null)
+            {
+                var children = new List<int>();
+
+                children.Add(node.Value);
+
+                var leftNodes = CheckBst(node.Left);
+                if (leftNodes == null || leftNodes.Any(v => node.Value < v))
+                    return null;
+
+                var rightNodes = CheckBst(node.Right);
+                if (rightNodes == null || rightNodes.Any(v => node.Value > v))
+                    return null;
+
+                children.AddRange(leftNodes);
+                children.AddRange(rightNodes);
+
+                return children;
+            }
+
+            return new List<int>();
         }
     }
 
