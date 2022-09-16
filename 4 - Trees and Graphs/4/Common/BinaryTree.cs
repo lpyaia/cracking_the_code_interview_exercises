@@ -152,6 +152,39 @@
 
             return new List<int>();
         }
+
+        public int? NextBstSuccessor(BinaryTreeNode<int>? node)
+        {
+            if (node == null) return null;
+
+            if (node.Right != null)
+            {
+                return GetMostLeftChild(node.Right);
+            }
+
+            else
+            {
+                BinaryTreeNode<int>? q = node;
+                BinaryTreeNode<int>? x = q.Parent;
+
+                while (x != null && x.Left != q)
+                {
+                    q = x;
+                    x = x.Parent;
+                }
+
+                return x?.Value;
+            }
+        }
+
+        public int? GetMostLeftChild(BinaryTreeNode<int>? node)
+        {
+            if (node == null) return null;
+
+            if (node.Left == null) return node.Value;
+
+            return GetMostLeftChild(node.Left);
+        }
     }
 
     public class BinaryTreeNode<T>
@@ -159,6 +192,8 @@
         public BinaryTreeNode<T>? Right { get; set; }
 
         public BinaryTreeNode<T>? Left { get; set; }
+
+        public BinaryTreeNode<T>? Parent { get; set; }
 
         public int Depth { get; set; }
 
