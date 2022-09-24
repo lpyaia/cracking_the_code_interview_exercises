@@ -185,6 +185,26 @@
 
             return GetMostLeftChild(node.Left);
         }
+
+        public BinaryTreeNode<T>? FirstCommonAncester(BinaryTreeNode<T>? node1, BinaryTreeNode<T>? node2)
+        {
+            if (node1 == null || node2 == null) return null;
+
+            while (node1.Parent != null)
+            {
+                node1 = node1.Parent;
+                node1.IsVisited = true;
+            }
+
+            node2 = node2.Parent;
+
+            while (node2 != null && node2.Parent != null && !node2.IsVisited)
+            {
+                node2 = node2.Parent;
+            }
+
+            return node2;
+        }
     }
 
     public class BinaryTreeNode<T>
@@ -198,6 +218,8 @@
         public int Depth { get; set; }
 
         public T Value { get; set; }
+
+        public bool IsVisited { get; set; }
 
         public BinaryTreeNode(T value)
         {
