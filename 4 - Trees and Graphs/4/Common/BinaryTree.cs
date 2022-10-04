@@ -205,6 +205,59 @@
 
             return node2;
         }
+
+        public int PathSum(BinaryTreeNode<int> node, int value)
+        {
+            int paths = 0;
+            var queue = new Queue<BinaryTreeNode<int>>();
+
+            queue.Enqueue(node);
+
+            node.IsVisited = true;
+
+            while (queue.Count > 0)
+            {
+                var currentNode = queue.Dequeue();
+
+                paths += PathSum(currentNode, value, 0, queue);
+            }
+
+            return paths;
+        }
+
+        private int PathSum(BinaryTreeNode<int>? node, int value, int currentSum, Queue<BinaryTreeNode<int>> queue)
+        {
+            if (node == null)
+                return 0;
+
+            if (!node.IsVisited)
+            {
+                queue.Enqueue(node);
+                node.IsVisited = true;
+            }
+
+            int sum = currentSum + node.Value;
+
+            if (sum == value)
+                return 1;
+
+            int paths = 0;
+
+            paths += PathSum(node.Left, value, sum, queue);
+            paths += PathSum(node.Right, value, sum, queue);
+
+            return paths;
+        }
+
+        public void ClearVisitedNodes(BinaryTreeNode<T>? node)
+        {
+            if (node == null)
+                return;
+
+            ClearVisitedNodes(node.Left);
+            node.IsVisited = false;
+            ClearVisitedNodes(node.Right);
+        }
     }
 
     public class BinaryTreeNode<T>
